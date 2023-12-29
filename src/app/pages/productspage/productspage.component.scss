@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+$font: 'Lato', sans-serif;
+
+$white: #F5F5F5;
+$light: #E0C9CB;
+$tan: #C3A1A0;
+$pink: #D9AAB7;
+//$rose: #BA7E7E;
+$dark: hsl(29, 100%, 50%);
+$teal: teal;
+$darker: rgb(1, 73, 73);
+$softer: rgb(13, 163, 163);
+
+/* center container in the middle */
+
+html {
+  size: 100%;
+}
+
+.page-title {
+  color: black;
+  font-weight: bold;
+}
+
+.sectionA {
+  display: grid;
+  column-gap: 0.5%;
+  row-gap: 0.5%;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+  margin-top: 50px;
+  margin-left: 0px;
+  justify-content: space-around;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+  height: 280px;
+  width: 400px;
+  background: white;
+  box-shadow: 5px 5px 15px rgba($teal, .5);
+  margin-bottom: 2%;
+  margin-right: 5px;
+  border-radius: 15px;
+  &:hover {
+    //background: $teal;
+    transition: all .2s ease-in-out;
+    outline: 3px solid teal;
+    height: 340px;
+    width: 440px;
+  
+    @media (min-width: 500px) and (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr)
+    } 
+    @media (max-width: 499px) {
+      grid-template-columns: 1fr
+    }
+}
+}
+
+p {
+  font-size: 0.7rem;
+  color: $teal;
+  letter-spacing: 0.35px;
+}
+
+h1 {
+  font-size: 1.2rem;
+  color: $dark;
+  margin-top: 0px;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+h2 {
+  color: $darker;
+  margin-top: -5px;
+}
+
+.product-image {
+    height: 90%;
+    width: 225px;
+    object-fit: contain;
+    margin-top: 7%;
+    margin-bottom: 0px;
+    margin-right: 7%;
+    margin-left: 7%;
+}
+
+.product {
+  margin-top: 3.5%;
+  margin-bottom: 3.5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.product p,
+.product h1,
+.product h2 {
+  margin-bottom: 5px; /* Decrease the margin-bottom value to reduce the space */
+}
+.product-category {
+  text-transform: capitalize;
+}
+/*.product-description ::first-letter {
+  text-transform: capitalize;
+}
+*/
+.product-description {
+  //text-transform: capitalize;
+  letter-spacing: 0;
+  color: black;
+  font-size: .7em;
+  line-height: 1.6em;
+  text-align: justify;
+  
+}
+
+.focus{
+  background: $teal;
+  color: $white;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  padding: 10px;
+  p {
+    letter-spacing: 3px;
+  }
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    &:hover {
+      color: #7d7d7d;
+    }
+  }
+}
