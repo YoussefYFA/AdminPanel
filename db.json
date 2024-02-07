@@ -1,0 +1,18 @@
+{
+  "User": [
+    {
+      "id": "1df5",
+      "username": "Youssef",
+      "password": "12345678",
+      "email": "yf.farouk@gmail.com",
+      "mobile": "0100200300"
+    },
+    {
+      "id": "60b5",
+      "username": "Youssef",
+      "password": "12345678",
+      "email": "yf@gmail.com",
+      "mobile": "0100200300"
+    }
+  ]
+}

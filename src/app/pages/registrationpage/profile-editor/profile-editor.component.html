@@ -1,0 +1,283 @@
+
+<div class="cardcontainer">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> Registration </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container">
+        <form appearance="fill" [formGroup]="profileForm" (ngSubmit)="onbutton()">
+          <mat-form-field appearance="outline">
+            <mat-label for="username">Choose a username</mat-label>
+            <input
+              matInput
+              id="username"
+              type="text"
+              placeholder="Username"
+              formControlName="username"
+            />
+            <span
+              class="invaliderror"
+              *ngIf="
+                profileForm.controls.username &&
+                profileForm.controls.username.dirty &&
+                profileForm.controls.username.hasError('required')
+              "
+            >
+              Don't forget to choose you username!
+            </span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label for="password1">Choose a password</mat-label>
+            <input
+              matInput
+              id="password1"
+              type="password"
+              placeholder="Password"
+              formControlName="password1"
+            />
+            <span
+              class="invaliderror"
+              *ngIf="
+                profileForm.controls.password1 &&
+                profileForm.controls.password1.dirty &&
+                profileForm.controls.password1.invalid
+              "
+            >
+              The password should have at least 8 characters!
+            </span>
+            <mat-hint>Password must be at least 8 characters</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label for="password2">Confirm your password</mat-label>
+            <input
+              matInput
+              id="password2"
+              type="password"
+              placeholder="Password"
+              formControlName="password2"
+            />
+            <span
+              class="invaliderror"
+              *ngIf="
+                profileForm.controls.password2 &&
+                profileForm.controls.password2.dirty &&
+                profileForm.controls.password2.invalid
+              "
+            >
+              You must retype the password!
+            </span>
+            <br />
+            <span
+              class="invaliderror"
+              *ngIf="
+                profileForm.controls.password2 &&
+                profileForm.controls.password2.dirty &&
+                profileForm.controls.password2.valid &&
+                profileForm.controls.password2.value !==
+                  profileForm.controls.password1.value
+              "
+            >
+              The password retype does not match the first password!
+            </span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label for="email">Type your email address</mat-label>
+            <input
+              matInput
+              id="email"
+              type="text"
+              placeholder="Ex: myEmail@domain.com"
+              formControlName="email"
+            />
+            <span
+              class="invaliderror"
+              *ngIf="
+                profileForm.controls.email &&
+                profileForm.controls.email.dirty &&
+                profileForm.controls.email.invalid
+              "
+            >
+              This email is invalid, please enter a valid email. 
+              {{ profileForm.controls.email.errors | json }}</span
+            >
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label for="mobile">Type your phone number</mat-label>
+            <input
+              matInput
+              id="mobile"
+              type="text"
+              placeholder="Ex: 0100200300"
+              formControlName="mobile"
+            />
+            <span
+              class="invaliderror"
+              *ngIf="
+                profileForm.controls.mobile &&
+                profileForm.controls.mobile.dirty &&
+                profileForm.controls.mobile.invalid
+              "
+            >
+              This phone number is invalid, please make sure you are entering 11
+              numbers and no letters.</span
+            >
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" >
+            Submit
+          </button>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<br />
+<br />
+<span> </span>
+<p>
+  Form Status: {{ profileForm.status }}, Password2 status:
+  {{ profileForm.controls.password2.status }}
+</p>
+<!-- 
+  <div *ngIf="profileForm.get('email')?.errors?.[incorrect]">
+  <p>Error: {{ profileForm.get('email')?.errors?.[incorrect] }}</p>
+</div>
+-->
+<span> </span>
+<br />
+
+
+<!-- 
+<div class="container">
+  <form appearance="fill" [formGroup]="profileForm" ngSubmit="onbutton()">
+    <mat-form-field appearance="outline">
+      <mat-label for="username">Choose a username</mat-label>
+      <input
+        matInput
+        id="username"
+        type="text"
+        placeholder="Username"
+        formControlName="username"
+      />
+      <span
+        class="invaliderror"
+        *ngIf="
+          profileForm.controls.username &&
+          profileForm.controls.username.dirty &&
+          profileForm.controls.username.hasError('required')
+        "
+      >
+        Don't forget to choose you username!
+      </span>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label for="password1">Choose a password</mat-label>
+      <input
+        matInput
+        id="password1"
+        type="password"
+        placeholder="Password"
+        formControlName="password1"
+      />
+      <span
+        class="invaliderror"
+        *ngIf="
+          profileForm.controls.password1 &&
+          profileForm.controls.password1.dirty &&
+          profileForm.controls.password1.invalid
+        "
+      >
+        The password should have at least 8 characters!
+      </span>
+      <mat-hint>Password must be at least 8 characters</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label for="password2">Confirm your password</mat-label>
+      <input
+        matInput
+        id="password2"
+        type="password"
+        placeholder="Password"
+        formControlName="password2"
+      />
+      <span
+        class="invaliderror"
+        *ngIf="
+          profileForm.controls.password2 &&
+          profileForm.controls.password2.dirty &&
+          profileForm.controls.password2.invalid
+        "
+      >
+        You must retype the password!
+      </span>
+      <br />
+      <span
+        class="invaliderror"
+        *ngIf="
+          profileForm.controls.password2 &&
+          profileForm.controls.password2.dirty &&
+          profileForm.controls.password2.valid &&
+          profileForm.controls.password2.value !==
+            profileForm.controls.password1.value
+        "
+      >
+        The password retype does not match the first password!
+      </span>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label for="email">Type your email address</mat-label>
+      <input
+        matInput
+        id="email"
+        type="text"
+        placeholder="Ex: myEmail@domain.com"
+        formControlName="email"
+      />
+      <span
+        class="invaliderror"
+        *ngIf="
+          profileForm.controls.email &&
+          profileForm.controls.email.dirty &&
+          profileForm.controls.email.hasError('email')
+        "
+      >
+        This email is invalid, please enter a valid email.</span
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label for="mobile">Type your phone number</mat-label>
+      <input
+        matInput
+        id="mobile"
+        type="text"
+        placeholder="Ex: 0100200300"
+        formControlName="mobile"
+      />
+      <span
+        class="invaliderror"
+        *ngIf="
+          profileForm.controls.mobile &&
+          profileForm.controls.mobile.dirty &&
+          profileForm.controls.mobile.invalid
+        "
+      >
+        This phone number is invalid, please make sure you are entering 11
+        numbers and no letters.</span
+      >
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+</div>
+
+-->
+

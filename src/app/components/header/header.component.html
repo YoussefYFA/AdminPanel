@@ -1,0 +1,24 @@
+
+<mat-toolbar>
+  <button mat-icon-button (click)="collapsed.set(!collapsed())">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="branding">
+      <img src="../../assets/logo.svg" alt="Logo" />
+      <h1>SoraPay</h1>
+  </div>
+  <div class="spacer"></div>
+  <div class="searchbar">
+    <input type="text" placeholder="Search website" />
+    <button type="submit">Search</button>
+  </div>
+  <span class="spacer"></span>
+  <ul class="nav-links">
+    <a mat-button>Home</a>
+    <a mat-button href="#">About</a>
+    <a mat-button href="#">Login</a>
+    <a mat-button routerLink="registrationpage">Register</a>
+    <a routerLink="registrationpage">Register</a>
+  </ul>
+
+</mat-toolbar>

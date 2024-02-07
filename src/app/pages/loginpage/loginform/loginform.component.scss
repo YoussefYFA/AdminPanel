@@ -1,0 +1,30 @@
+html {
+    display: flex;
+    background-color: white;
+  }
+  
+  .cardcontainer {
+    display: grid;
+    width: 432px;
+    margin: 0 auto;
+  }
+  
+  form {
+    display: grid;
+    padding: 0px 25px 25px 25px;
+    flex-direction: column;
+    min-width: 150px;
+    max-width: 350px;
+  
+  }
+  
+  .button {
+    cursor: pointer;
+  }
+  
+  .container {
+    text-align:center;
+    margin: 25px 0px 0px 0px;
+    width: 100%;
+    align-self: center;
+  }  
