@@ -1,2 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+$font: 'Lato', sans-serif;
 
+$orange: hsl(29, 100%, 50%);
+$teal: teal;
+$darker: rgb(1, 73, 73);
+$softer: rgb(13, 163, 163);
+
+.page-title {
+  font-size: 28px;
+  color: black;
+  font-weight: bold;
+  margin: 10px 10px;
+}
+
+h1 {
+    font-size: 1.2rem;
+    color: $orange;
+    margin-top: 0px;
+    letter-spacing: 0;
+    line-height: 1.2;
+  }
+  
   

@@ -1,25 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 $font: 'Lato', sans-serif;
 
-$white: #F5F5F5;
-$light: #E0C9CB;
-$tan: #C3A1A0;
-$pink: #D9AAB7;
-//$rose: #BA7E7E;
-$dark: hsl(29, 100%, 50%);
+$orange: hsl(29, 100%, 50%);
 $teal: teal;
 $darker: rgb(1, 73, 73);
 $softer: rgb(13, 163, 163);
 
-/* center container in the middle */
 
-html {
-  size: 100%;
-}
 
 .page-title {
+  font-size: 35px;
   color: black;
   font-weight: bold;
+  margin-left: 92.5px;
 }
 
 .sectionA {
@@ -47,10 +40,11 @@ html {
   border-radius: 15px;
   &:hover {
     //background: $teal;
-    transition: all .2s ease-in-out;
+    transition: all .15s ease-in-out;
     outline: 3px solid teal;
     height: 340px;
-    width: 440px;
+    width: 470px;
+    z-index: 9999;
   
     @media (min-width: 500px) and (max-width: 768px) {
       grid-template-columns: repeat(2, 1fr)
@@ -69,7 +63,7 @@ p {
 
 h1 {
   font-size: 1.2rem;
-  color: $dark;
+  color: $orange;
   margin-top: 0px;
   letter-spacing: 0;
   line-height: 1.2;
@@ -121,28 +115,4 @@ h2 {
   line-height: 1.6em;
   text-align: justify;
   
-}
-
-.focus{
-  background: $teal;
-  color: $white;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  padding: 10px;
-  p {
-    letter-spacing: 3px;
-  }
-  a {
-    color: #ffffff;
-    text-decoration: none;
-    &:hover {
-      color: #7d7d7d;
-    }
-  }
 }
