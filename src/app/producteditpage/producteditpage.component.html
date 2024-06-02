@@ -1,0 +1,132 @@
+<div class="topcontainer">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> Update Product </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container">
+        <form appearance="fill" #editProduct="ngForm" [formGroup]="editProductForm" (ngSubmit)="submit(editProduct.value)">
+          <mat-form-field [style.width.px]=400 appearance="outline">
+            <mat-label for="productTitle">Type the new product title</mat-label>
+            <input
+              matInput
+              id="productTitle"
+              type="text"
+              placeholder="productTitle"
+              formControlName="productTitle"
+              ngModel="{{productData?.title}}"
+            />
+            <span
+              class="invaliderror"
+              *ngIf="
+                editProductForm.controls.productTitle &&
+                editProductForm.controls.productTitle.dirty &&
+                editProductForm.controls.productTitle.hasError('required')
+              "
+            >
+              Don't forget to type the new product title!
+            </span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label for="productPrice">Type the new product price</mat-label>
+            <input
+              matInput
+              id="productPrice"
+              type="text"
+              placeholder="productPrice"
+              formControlName="productPrice"
+              ngModel="{{productData?.price}}"
+            />
+            <span
+              class="invaliderror"
+              *ngIf="
+                editProductForm.controls.productPrice &&
+                editProductForm.controls.productPrice.dirty &&
+                editProductForm.controls.productPrice.hasError('required')
+              "
+            >
+            Don't forget to type the new product price!
+            </span>
+          </mat-form-field>
+
+
+
+
+
+
+          <mat-form-field appearance="outline">
+            <mat-label for="productCategory">Type the new product category</mat-label>
+            <input
+              matInput
+              id="productCategory"
+              type="text"
+              placeholder="productCategory"
+              formControlName="productCategory"
+              ngModel="{{productData?.category}}"
+            />
+            <span
+              class="invaliderror"
+              *ngIf="
+                editProductForm.controls.productCategory &&
+                editProductForm.controls.productCategory.dirty &&
+                editProductForm.controls.productCategory.hasError('required')
+              "
+            >
+            Don't forget to type the new product category!
+            </span>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label for="productDescription">Type the new product description</mat-label>
+            <input
+              matInput
+              id="productDescription"
+              type="text"
+              placeholder="productDescription"
+              formControlName="productDescription"
+              ngModel="{{productData?.description}}"
+            />
+            <span
+              class="invaliderror"
+              *ngIf="
+                editProductForm.controls.productDescription &&
+                editProductForm.controls.productDescription.dirty &&
+                editProductForm.controls.productDescription.hasError('required')
+              "
+            >
+            Don't forget to type the new product description!
+            </span>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label for="productImageUrl">Insert the new product image url</mat-label>
+            <input
+              matInput
+              id="productImageUrl"
+              type="text"
+              placeholder="productImageUrl"
+              formControlName="productImageUrl"
+              ngModel="{{productData?.image}}"
+            />
+            <span
+              class="invaliderror"
+              *ngIf="
+                editProductForm.controls.productImageUrl &&
+                editProductForm.controls.productImageUrl.dirty &&
+                editProductForm.controls.productImageUrl.hasError('required')
+              "
+            >
+            Don't forget to type the new product image link!
+            </span>
+          </mat-form-field>
+          <p>{{productMessage}}</p>
+          <button mat-raised-button color="primary" (click)="openSnackBar()" >Update Product</button>
+        </form>
+      <img class="productImage" [src]="productData?.image" alt="Product Image">
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -4,7 +4,7 @@ import { MatListModule} from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
-
+import { MatButtonModule } from '@angular/material/button';
 
 export type MenuItem = {
   icon: string;
@@ -15,7 +15,7 @@ export type MenuItem = {
 @Component({
   selector: 'app-custom-sidenav',
   standalone: true,
-  imports: [CommonModule, MatListModule, MatIconModule, RouterModule, HeaderComponent],
+  imports: [CommonModule, MatListModule, MatIconModule, MatButtonModule, RouterModule],
   templateUrl: './custom-sidenav.component.html',
   styleUrl: './custom-sidenav.component.scss'
 })
@@ -26,6 +26,8 @@ export class CustomSidenavComponent {
 
   sideNavCollapsed = signal(false);
   
+  Collapsed = false
+
   @Input() set collapsed(val: boolean) {
     this.sideNavCollapsed.set(val);
   }

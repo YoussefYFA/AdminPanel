@@ -1,6 +1,8 @@
 
+<app-header>  </app-header>
 
-<mat-toolbar class="toolbar">
+<!-- old Material Toolbar 
+  <mat-toolbar class="toolbar">
   <button mat-icon-button (click)="collapsed.set(!collapsed())">
     <mat-icon>menu</mat-icon>
   </button>
@@ -9,9 +11,8 @@
       <h1>SoraPay</h1>
   </div>
   <div class="spacer"></div>
-  <div class="searchbar">
-    <input type="text" placeholder="Search website" />
-    <button type="submit">Search</button>
+   <div class="searchbar">
+    <input type="text" ngModel="enteredSearchValue" (input)="onSearchTextChanged($event)" placeholder="Search products... " />
   </div>
   <span class="spacer"></span>
   <ul class="nav-links">
@@ -20,7 +21,7 @@
     <a mat-button routerLink="registrationpage">Register</a>
   </ul>
 
-</mat-toolbar>
+</mat-toolbar> -->
 
   <mat-sidenav-container>
     
@@ -32,3 +33,4 @@
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
+  

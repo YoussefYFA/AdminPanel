@@ -1,5 +1,4 @@
-<p>loginform works!</p>
-
+<span class="span1"></span>
 <div class="cardcontainer">
     <mat-card>
       <mat-card-header>
@@ -7,7 +6,7 @@
       </mat-card-header>
       <mat-card-content>
         <div class="container">
-            <form appearance="fill" [formGroup]="loginForm" (ngSubmit)="onbutton()">
+            <form appearance="fill" [formGroup]="loginForm" (ngSubmit)="onLogin()">
               <mat-form-field appearance="outline">
                 <mat-label for="username">Type your username</mat-label>
                 <input
@@ -48,10 +47,11 @@
                 >
                 don't forget to enter your password!
                 </span>
-                <mat-hint>Password must be at least 8 characters</mat-hint>
+               
               </mat-form-field>
-    
-    
+
+              <p class= "wrongpass" *ngIf="Wrongcredentials"> Wrong username or password</p>
+ 
               <button mat-raised-button color="primary" >
                 Login
               </button>

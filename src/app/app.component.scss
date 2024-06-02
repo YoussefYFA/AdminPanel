@@ -4,6 +4,7 @@ $medium: hsl(180, 62%, 79%);
 
 .toolbar {
 display:flexbox;
+background-color: transparent;
 }
 
 
@@ -13,6 +14,7 @@ mat-toolbar {
   display: inline-flex;
   background: white;
   margin-right: -200px;
+  background-color: transparent
 }
 mat-toolbar button {
   margin-right: 00px;
@@ -42,32 +44,35 @@ h1 {
   margin-top: 10px;
 }
 
-.searchbar input {
-  //flex: 1;
-  color: #525252;
-  background: #f0f0f0;
-  border: 0px solid $medium;
-  height: 40px;
-  border-right: none;
-  border-radius: 30px 0 0 30px;
-  width: 100%;
+// .searchbar {
+//   width: 300px;
+// }
+// .searchbar input {
+//   //flex: 1;
+//   color: #525252;
+//   background: #f0f0f0;
+//   border: 0px solid $medium;
+//   height: 40px;
+//   border-right: none;
+//   border-radius: 30px;
+//   width: 100%;
   
-  margin-right: -20px;
-  padding-left: 20px;
-}
+//   margin-right: -20px;
+//   padding-left: 20px;
+// }
 
-.searchbar button {
-  color: black;
-  border: 1px solid #fafafa;
-  height: 42px;
-  width: 64px;
-  border-left: none;
-  border-radius: 30px 30px 30px 30px;
-}
-.searchbar text {
-  margin-left: 20px;
-  color: white;
-}
+// .searchbar button {
+//   color: black;
+//   border: 1px solid #fafafa;
+//   height: 42px;
+//   width: 64px;
+//   border-left: none;
+//   border-radius: 30px 30px 30px 30px;
+// }
+// .searchbar text {
+//   margin-left: 20px;
+//   color: white;
+// }
 
 .nav-links {
   //  text-decoration: none;
@@ -75,16 +80,27 @@ h1 {
   cursor: pointer;
 }
 .content {
-  padding: 10px;
+  padding-right: 1%;
+  padding-bottom: 2%;
 }
 
 mat-sidenav-container {
   height: calc(100vh - 64px);
+  margin: none;
+  padding: none;
+  // background-color: white;
+  // border-color: red;
 }
 
 mat-sidenav,
 mat-sidenav-content {
   transition: all 500ms ease-in-out;
+  background-color: var(--global-background-color);
+  margin: none;
+}
+mat-sidenav {
+  //background-color: rgb(245, 245, 245, 0.5);
+  border: none;
 }
 
 h2 {

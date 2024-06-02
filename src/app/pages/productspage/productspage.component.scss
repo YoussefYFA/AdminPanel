@@ -1,3 +1,4 @@
+/*
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 $font: 'Lato', sans-serif;
 
@@ -61,18 +62,6 @@ p {
   letter-spacing: 0.35px;
 }
 
-h1 {
-  font-size: 1.2rem;
-  color: $orange;
-  margin-top: 0px;
-  letter-spacing: 0;
-  line-height: 1.2;
-}
-
-h2 {
-  color: $darker;
-  margin-top: -5px;
-}
 
 .product-image {
     height: 90%;
@@ -98,15 +87,13 @@ h2 {
 .product p,
 .product h1,
 .product h2 {
-  margin-bottom: 5px; /* Decrease the margin-bottom value to reduce the space */
+  margin-bottom: 5px;  Decrease the margin-bottom value to reduce the space
 }
+
 .product-category {
   text-transform: capitalize;
 }
-/*.product-description ::first-letter {
-  text-transform: capitalize;
-}
-*/
+
 .product-description {
   //text-transform: capitalize;
   letter-spacing: 0;
@@ -116,3 +103,5 @@ h2 {
   text-align: justify;
   
 }
+
+*/

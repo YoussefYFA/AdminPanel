@@ -1,79 +1,91 @@
-<h1 class="page-title">Products by Category</h1>
+<div class="content-card">
+<h1 class="page-title" *ngIf="this.searchText === ''">Products by Category</h1>
+<h1 class="page-title" *ngIf="this.searchText !== ''">
+  Searching for: {{ this.searchText }}
+</h1>
 
-<mat-tab-group fitInkBarToContent>
-  <mat-tab label="All categories" (click)="showAllProducts()">
-    <section class="sectionA">
-      <div class="container" *ngFor="let item of productsList">
-        <div>
-          <img
-            class="product-image"
-            [src]="item.image"
-            alt="Error: data for {{ item.title }} not found."
-          />
-        </div>
-        <div class="product">
-          <p class="product-category">{{ item.category }}</p>
-          <h1 class="product-title">{{ item.title }}</h1>
-          <h2 class="product-price">E£ {{ item.price }}</h2>
-          <p class="product-description">{{ item.description }}</p>
-        </div>
-      </div>
-    </section>
-  </mat-tab>
-
-  <mat-tab
-    *ngFor="let category of categories"
-    [label]="category"
-    (click)="filterProductsByCategory(category)"
-  >
-    <section class="sectionA">
-      <div
-        class="container"
-        *ngFor="let item of filterProductsByCategory(category)"
-      >
-        <div>
-          <img
-            class="product-image"
-            [src]="item.image"
-            alt="Error: data for {{ item.title }} not found."
-          />
-        </div>
-        <div class="product">
-          <p class="product-category">{{ item.category }}</p>
-          <h1 class="product-title">{{ item.title }}</h1>
-          <h2 class="product-price">E£ {{ item.price }}</h2>
-          <p class="product-description">{{ item.description }}</p>
-        </div>
-      </div>
-    </section>
-  </mat-tab>
-</mat-tab-group>
-
-<!--
-<button (click)="showAllProducts()">All</button>
-<button *ngFor="let category of categories" (click)="filteredProducts = filterProductsByCategory(category)">
-  {{category}}</button>
-
-<br>
-<h1 class="page-title">
-    Products (independant Component)
-  </h1>
-
-<section class="sectionA">
-  <div class="container" *ngFor="let item of filteredProducts">
-    <div>
+<div class="content-card">
+  <section class="productgrid" *ngIf="this.searchText !== ''">
+    <div class="card" *ngFor="let item of searchProductsBySearchText()">
       <img
         class="product-image"
         [src]="item.image"
         alt="Error: data for {{ item.title }} not found."
       />
+      <div class="cardfooter">
+        <h1 class="product-title">{{ item.title }}</h1>
+        <h2 class="product-price">E£ {{ item.price }}</h2>
+
+        <button mat-raised-button routerLink="/producteditpage/{{ item.id }}">
+          Edit
+        </button>
+      </div>
     </div>
-    <div class="product">
-      <p class="product-category">{{ item.category }}</p>
-      <h1 class="product-title">{{ item.title }}</h1>
-      <h2 class="product-price">E£ {{ item.price }}</h2>
-      <p class="product-description">{{ item.description }}</p>
-    </div>
-  </div>
-</section>
--->
+  </section>
+
+  <mat-tab-group fitInkBarToContent *ngIf="this.searchText === ''">
+    <mat-tab label="All categories" (click)="showAllProducts()">
+      <section class="productgrid">
+        <div
+          class="card"
+          *ngFor="let item of filteredProducts.slice(0, chosenPageSize)"
+        >
+          <img
+            class="product-image"
+            [src]="item.image"
+            alt="Error: data for {{ item.title }} not found."
+          />
+          <div class="cardfooter">
+            <h1 class="product-title">{{ item.title }}</h1>
+            <h2 class="product-price">E£ {{ item.price }}</h2>
+
+            <button
+              mat-raised-button
+              routerLink="/producteditpage/{{ item.id }}"
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+      </section>
+      <mat-paginator
+        [length]="productsAmount"
+        [pageSize]="initialPageSize"
+        [pageSizeOptions]="[initialPageSize, 14, productsAmount]"
+        (page)="handlePageEvent($event)"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+    </mat-tab>
+
+    <mat-tab
+      *ngFor="let category of categories"
+      [label]="category"
+      (click)="filterProductsByCategory(category)"
+    >
+      <section class="productgrid">
+        <div
+          class="card"
+          *ngFor="let item of filterProductsByCategory(category)"
+        >
+          <img
+            class="product-image"
+            [src]="item.image"
+            alt="Error: data for {{ item.title }} not found."
+          />
+          <div class="cardfooter">
+            <h1 class="product-title">{{ item.title }}</h1>
+            <h2 class="product-price">E£ {{ item.price }}</h2>
+
+            <button
+              mat-raised-button
+              routerLink="/producteditpage/{{ item.id }}"
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+      </section>
+    </mat-tab>
+  </mat-tab-group>
+</div>

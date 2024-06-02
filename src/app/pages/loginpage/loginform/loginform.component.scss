@@ -3,6 +3,12 @@ html {
     background-color: white;
   }
   
+  mat-card {
+    border-radius: 10px;
+  }
+  .span1 {
+    height: 100px;
+  }
   .cardcontainer {
     display: grid;
     width: 432px;
@@ -28,3 +34,8 @@ html {
     width: 100%;
     align-self: center;
   }  
+
+  .wrongpass {
+    color: red;
+    font-size: 15px;
+  }

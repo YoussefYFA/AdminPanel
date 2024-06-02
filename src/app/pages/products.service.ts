@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Productinterface } from '../productinterface';
-import { ProductsComponent } from './products/products.component';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,11 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
 
-  productsList: Productinterface[] = [];
+  productsList: Productinterface[] = [
+    {id: 1,
+    title: "Example Product",
+    description: "This is a product description...",
+    price: 19.99,
+    image: "https://example.com/product-image.jpg",
+    category: "Electronics",}
+  ];
 
   getAllProducts(): Productinterface[]{
     return this.productsList;}
-  
  
   constructor( private http:HttpClient) { }
   getData(): Observable<Productinterface[]> {
@@ -21,7 +26,16 @@ export class ProductsService {
     return this.http.get<Productinterface[]>(url);
       
   }
+
+  getProduct(id: string): Observable<Productinterface> {
+    return this.http.get<Productinterface>(`https://fakestoreapi.com/products/${id}`);
+  }
+
+  updateProduct(product: Productinterface): Observable<Productinterface> {
+    return this.http.put<Productinterface>(`https://fakestoreapi.com/products/${product.id}`, product);
+  }
 }
+
 
 
  /*getAllProductsByCategory(category: string): Productinterface | undefined {

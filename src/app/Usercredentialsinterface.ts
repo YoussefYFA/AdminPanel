@@ -1,6 +1,6 @@
-export interface Usercredentialsinterface {
+export interface UserCredentialsInterface {
     username: string,
     password: string,
     email: string,
-    mobile: number,
+    mobile: string,
 }

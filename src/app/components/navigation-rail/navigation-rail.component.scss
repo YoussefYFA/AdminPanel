@@ -1,0 +1,27 @@
+.navigation{
+    color: blue;
+    max-height: 100%;
+    max-width: 100%;
+    position: sticky;
+    top: 0px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: violet;
+  }
+  .nav-item:first-child{
+    margin-top:10vh;
+  }
+  .nav-item.menu-button{
+    padding-bottom: 24px;
+  }
+  .nav-item.active{
+    color: var(--color-on-surface);
+  }
+  .nav-item.active > span{
+    background-color: var(--color-secondary-container);
+    color: var(--color-on-secondary-container);
+    border-radius: 25%/50%;
+    width: 56px;
+    height: 32px;
+  }

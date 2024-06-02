@@ -1,18 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
-
-
 @use '@angular/material' as mat;
 @include mat.core();
+@import url('https://fonts.googleapis.com/css?family=Google+Sans');
 
 
+
+:root {
+    --global-background-color: rgb(243,246,252);
+    --global-background-color: rgb(250, 243, 201);
+    --global-background-color: #d7e4ff;
+}
+
+
+.custom-mat-card {
+    /* Your desired styles for mat-card, e.g., border-radius */
+    border-radius: 30px;
+  }
+
+.page-title {
+    font-family:'Google Sans', sans-serif;
+    font-size: 35px;
+    //font-weight: 475;
+    color: blue;
+    font-weight: bold;
+    margin: 10px 10px;
+  }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
---primary-color: teal;
+--primary-color: #1d65ff;
 }
 
 $mat-primary: (
-    main: teal,
+    main: var(--primary-color),
     lighter: rgb(4, 165, 165),
     darker: rgb(0, 71, 71),
     200: teal,
@@ -38,3 +57,52 @@ $my-theme: mat.define-light-theme(
 );
 
 @include mat.all-component-themes($my-theme);
+
+
+/// Charts
+
+.chart-title {
+    font-family:'Google Sans', sans-serif;
+    font-size: 25px;
+    //font-weight: 475;
+    color: black;
+    font-weight: bold;
+    margin: 10px 10px;
+  }
+  
+  .chart-container {
+      display:flex;
+      flex-direction: column;
+      background-color: rgb(255, 255, 255);
+      border-radius: 24px;
+      width: 300px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-align: center;
+  }
+  
+  .chart-title {
+    font-size: 28px;
+    color: black;
+    font-weight: bold;
+    margin: 10px 10px;
+  } 
+
+.content-card {
+    background-color: rgb(255, 255, 255);
+    border-radius: 24px;
+    height: auto;
+    // padding: none;
+    // margin: none;
+    margin-bottom: 2%;
+    overflow: auto;
+}
+
+.page-title {
+    font-family:'Google Sans', sans-serif;
+    font-size: 35px;
+    //font-weight: 475;
+    color: black;
+    font-weight: bold;
+    margin: 50px;
+  }
